@@ -1,3 +1,7 @@
+import EffectsList from "@/components/EffectsList";
+
+const Effects = ["tilt"];
+
 export default function ReactSpring() {
-  return <div>Hello, React Spring!</div>;
+  return <EffectsList effects={Effects} />;
 }

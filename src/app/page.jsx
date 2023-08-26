@@ -1,3 +1,7 @@
+import LibrariesLisrt from "@/components/LibrariesList";
+
+const libraries = ["react-spring"];
+
 export default function Home() {
-  return <div>Hello, Next.js!</div>;
+  return <LibrariesLisrt libraries={libraries} />;
 }
