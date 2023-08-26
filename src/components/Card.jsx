@@ -10,4 +10,6 @@ const Card = forwardRef(({ className = "", ...props }, ref) => {
   );
 });
 
+Card.displayName = "Card";
+
 export default Card;
