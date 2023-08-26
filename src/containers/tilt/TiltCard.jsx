@@ -3,12 +3,10 @@
 import React, { useRef } from "react";
 import { useSpring, animated } from "@react-spring/web";
 
-const cardClassName = "w-64 h-96 bg-black rounded shadow-xl";
-
 const TiltCard = () => {
   const divRef = useRef(null);
 
-  const [props, set] = useSpring(() => ({
+  const [{ xys }, set] = useSpring(() => ({
     xys: [0, 0, 1],
     config: { mass: 5, tension: 2000, friction: 200 },
   }));
@@ -32,13 +30,11 @@ const TiltCard = () => {
 
   return (
     <animated.div
-      className={cardClassName}
+      className="w-64 h-96 bg-black rounded shadow-xl"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       ref={divRef}
-      style={{
-        transform: props.xys.to(trans),
-      }}
+      style={{ transform: xys.to(trans) }}
     />
   );
 };
