@@ -33,6 +33,7 @@ const TiltCard = () => {
 
   return (
     <AnimatedCard
+      className="bg-black"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       ref={cardRef}
