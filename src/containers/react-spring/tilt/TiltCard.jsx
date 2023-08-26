@@ -2,9 +2,12 @@
 
 import React, { useRef } from "react";
 import { useSpring, animated } from "@react-spring/web";
+import Card from "@/components/Card";
+
+const AnimatedCard = animated(Card);
 
 const TiltCard = () => {
-  const divRef = useRef(null);
+  const cardRef = useRef(null);
 
   const [{ xys }, set] = useSpring(() => ({
     xys: [0, 0, 1],
@@ -12,8 +15,8 @@ const TiltCard = () => {
   }));
 
   const calc = (x, y) => [
-    -(y - divRef.current.offsetTop - divRef.current.clientHeight / 2) / 20,
-    (x - divRef.current.offsetLeft - divRef.current.clientWidth / 2) / 20,
+    -(y - cardRef.current.offsetTop - cardRef.current.clientHeight / 2) / 20,
+    (x - cardRef.current.offsetLeft - cardRef.current.clientWidth / 2) / 20,
     1,
   ];
 
@@ -29,11 +32,10 @@ const TiltCard = () => {
   };
 
   return (
-    <animated.div
-      className="w-64 h-96 bg-black rounded shadow-xl"
+    <AnimatedCard
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      ref={divRef}
+      ref={cardRef}
       style={{ transform: xys.to(trans) }}
     />
   );
